@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henryk Mszyca - Montażysta Filmów</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #ffa200; /* Żółty kolor przywrócony */
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+        }
+        
+        .logo-name {
+            color: var(--gray);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--primary);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: var(--secondary); /* Żółty okrąg przywrócony */
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background-color: #f8fafc;
+        }
+        
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .video-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none; /* Uniemożliwia interakcję użytkownika */
+            user-select: none; /* Zapobiega zaznaczaniu */
+        }
+        
+        .status-checkbox.checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .status-checkbox.checked::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .github-link {
+            color: var(--secondary); /* Żółty kolor przywrócony */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .github-link:hover {
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-container {
+                justify-content: center; /* Logo na środku na telefonach */
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Styl dla spacji w logo */
+        .logo-name {
+            color: var(--primary);
+        }
+        
+        .logo-surname {
+            color: var(--secondary); 
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-name">Henryk</span> <span class="logo-surname">Mszyca</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about">O mnie</a>
+                <a href="#skills">Umiejętności</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Montaż filmów, który <span>przekłada się na wyniki</span></h1>
+                <p>Tworzę spójne, angażujące treści wideo dla social media, które realizują realne cele biznesowe bez zbędnych efektów i chwilowych trendów.</p>
+                <a href="#contact" class="cta-button">Zleć montaż filmu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">O <span>mnie</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Montażem wideo zajmuję się od 3 lat, a od roku pracuję komercyjnie z klientami. Skupiam się na jasnym przekazie, spójności materiałów i realnych celach wideo, bez zbędnych efektów i chwilowych trendów.</p>
+                    <p>Moje doświadczenie obejmuje zarówno krótkie formaty (Reels/Shorts), jak i dłuższe materiały wideo, zawsze dostosowane do specyfiki platformy i oczekiwań odbiorców.</p>
+                    <div class="highlight-box">
+                        <p><strong>Dostarczasz materiał - resztę robię ja.</strong> Oszczędzam Twój czas, a Ty otrzymujesz gotowe materiały do publikacji, bez potrzeby poprawek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Moje <span>umiejętności</span></h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Montaż rolek i długich formatów</h3>
+                    <p>Tworzę zarówno krótkie materiały (Reels/Shorts) jak i dłuższe formy wideo, dostosowane do specyfiki każdej platformy.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Koncepcja i scenariusze</h3>
+                    <p>Oferuję opracowanie scenariuszy do rolek z jasnym przekazem, bez "lania wody", które skutecznie angażują widzów.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Oszczędność czasu</h3>
+                    <p>Ty dostarczasz materiał, a ja zajmuję się resztą. Kompleksowa obsługa od montażu po gotowe do publikacji materiały.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-brush"></i>
+                    <h3>Spójność stylu</h3>
+                    <p>Styl dopasowany do marki i odbiorcy, nie do chwilowych trendów. Dbam o spójność komunikacji między formatami.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Korekta obrazu i dźwięku</h3>
+                    <p>Profesjonalna korekta barwna i dźwiękowa dla pełnej czytelności przekazu i najwyższej jakości materiałów.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Gotowość do publikacji</h3>
+                    <p>Materiały dostarczam w formie gotowej do natychmiastowej publikacji, bez potrzeby dodatkowych poprawek.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Moje <span>prace</span></h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--gray); max-width: 800px; margin-left: auto; margin-right: auto;">Poniżej znajdziesz przykłady moich realizacji. Każde wideo jest zoptymalizowane pod kątem platformy docelowej i założonych celów.</p>
+            
+            <div class="videos-container">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Reel dla marki odzieżowej</h3>
+                        <p>Krótki format pokazujący kolekcję w dynamiczny, angażujący sposób. 60% wzrost zaangażowania.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Short dla szkoły językowej</h3>
+                        <p>Edukacyjny materiał w formie shorta. 3x więcej zapytań o kursy w ciągu tygodnia od publikacji.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Wideo produktowe</h3>
+                        <p>Prezentacja nowego produktu tech. Połączenie ujęć produktowych z testimonialami.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Seria Reels dla restauracji</h3>
+                        <p>Cykl krótkich filmów promujących menu sezonowe. 40% wzrost rezerwacji w miesiącu kampanii.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 5 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Long-form tutorial</h3>
+                        <p>Pełny tutorial w formacie 10-minutowym. Przejrzysty montaż z zaznaczeniem kluczowych kroków.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 6 -->
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="video-info">
+                        <h3>Kampania eventowa</h3>
+                        <p>Materiały promujące wydarzenie biznesowe. Połączenie formatów short i long-form.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: var(--gray); margin-bottom: 20px;">Wszystkie wideo hostowane są na platformie Bunny.net dla optymalnej szybkości ładowania.</p>
+                <a href="#contact" class="cta-button">Skontaktuj się, aby zobaczyć więcej</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Skontaktuj się <span>ze mną</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Dane kontaktowe</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>henrykmszyca@vp.pl</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <strong>Instagram DM</strong>
+                                <p>@heniu_visuals</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-container">
+                        <div class="status-item">
+                            <div class="status-checkbox checked"></div>
+                            <span>Gotowy na jednorazowe zlecenia</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-checkbox checked"></div> 
+                            <span>Otwarty na współpracę długoterminową</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <a href="https://github.com/HenrykMszyca/Portfolio" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> Zobacz projekt na GitHub
+            </a>
+            <p>© 2025 Henryk Mszyca. Wszystkie prawa zastrzeżone.</p>
+            <p>Montaż filmów dla social media | Reels | Shorts | Long-form</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to video cards
+        document.querySelectorAll('.video-card').forEach(card => {
+            const placeholder = card.querySelector('.video-placeholder');
+            const icon = card.querySelector('.fa-play-circle');
+            
+            card.addEventListener('mouseenter', function() {
+                icon.style.transform = 'scale(1.2)';
+                icon.style.transition = 'transform 0.3s';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
