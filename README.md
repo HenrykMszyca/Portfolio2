@@ -7,4 +7,4 @@ Montażem wideo zajmuję się od 3 lat, specjalizuję się w contentcie dla soci
 
 ## Kontakt
 - Email: henrykmszyca@vp.pl
-- Instagram: @henrykmszyca_montaz
+- Instagram: @heniu_visuals
