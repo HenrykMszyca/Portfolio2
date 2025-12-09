@@ -10,17 +10,13 @@
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary: #ffa200; /* Żółty kolor przywrócony */
+            --secondary: #f59e0b;
             --dark: #111827;
             --light: #f9fafb;
             --gray: #6b7280;
             --gray-light: #e5e7eb;
         }
         
-        .logo-name {
-            color: var(--gray);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +37,6 @@
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -85,7 +80,6 @@
             color: var(--primary);
         }
         
-        /* Hero Section */
         .hero {
             padding: 160px 0 100px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
@@ -112,7 +106,7 @@
             left: -100px;
             width: 400px;
             height: 400px;
-            background-color: var(--secondary); /* Żółty okrąg przywrócony */
+            background-color: var(--secondary);
             opacity: 0.05;
             border-radius: 50%;
         }
@@ -161,7 +155,6 @@
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
         }
         
-        /* Section Styling */
         section {
             padding: 80px 0;
         }
@@ -178,7 +171,6 @@
             color: var(--primary);
         }
         
-        /* About Section */
         .about-content {
             display: flex;
             align-items: center;
@@ -204,7 +196,6 @@
             border-left: 5px solid var(--secondary);
         }
         
-        /* Skills Section */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -237,7 +228,6 @@
             color: var(--dark);
         }
         
-        /* Portfolio Section */
         .portfolio {
             background-color: #f8fafc;
         }
@@ -254,6 +244,10 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .video-card:hover {
@@ -261,14 +255,57 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
         
-        .video-placeholder {
+        .thumbnail-container {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .video-card:hover .thumbnail {
+            transform: scale(1.05);
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .play-icon {
+            background-color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4rem;
+            font-size: 1.5rem;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover .play-icon {
+            transform: scale(1);
         }
         
         .video-info {
@@ -284,9 +321,9 @@
         .video-info p {
             color: var(--gray);
             font-size: 0.9rem;
+            line-height: 1.5;
         }
         
-        /* Contact Section */
         .contact-container {
             display: flex;
             gap: 60px;
@@ -344,8 +381,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            pointer-events: none; /* Uniemożliwia interakcję użytkownika */
-            user-select: none; /* Zapobiega zaznaczaniu */
+            pointer-events: none;
+            user-select: none;
         }
         
         .status-checkbox.checked {
@@ -359,7 +396,6 @@
             font-weight: bold;
         }
         
-        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
@@ -375,7 +411,7 @@
         }
         
         .github-link {
-            color: var(--secondary); /* Żółty kolor przywrócony */
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
@@ -385,7 +421,6 @@
             color: white;
         }
         
-        /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -406,7 +441,7 @@
             }
             
             .header-container {
-                justify-content: center; /* Logo na środku na telefonach */
+                justify-content: center;
             }
             
             .logo {
@@ -426,18 +461,16 @@
             }
         }
         
-        /* Styl dla spacji w logo */
         .logo-name {
             color: var(--primary);
         }
         
         .logo-surname {
-            color: var(--secondary); 
+            color: var(--secondary);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
@@ -452,7 +485,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -463,7 +495,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2 class="section-title">O <span>mnie</span></h2>
@@ -479,7 +510,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Moje <span>umiejętności</span></h2>
@@ -527,74 +557,104 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Moje <span>prace</span></h2>
-            <p style="text-align: center; margin-bottom: 40px; color: var(--gray); max-width: 800px; margin-left: auto; margin-right: auto;">Poniżej znajdziesz przykłady moich realizacji. Każde wideo jest zoptymalizowane pod kątem platformy docelowej i założonych celów.</p>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--gray); max-width: 800px; margin-left: auto; margin-right: auto;">Poniżej znajdziesz przykłady moich realizacji. Kliknij w dowolny kafelek, aby zobaczyć film w nowej karcie.</p>
             
             <div class="videos-container">
                 <!-- Video 1 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/rolka%2012.1.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="wodor1.jpg" alt="Wizyta w salonie beauty" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Reel dla marki odzieżowej</h3>
-                        <p>Krótki format pokazujący kolekcję w dynamiczny, angażujący sposób. 60% wzrost zaangażowania.</p>
+                        <h3>Wizyta w salonie beauty</h3>
+                        <p>Zobacz, jak odmieniamy klientów marki! Ekskluzywna relacja z wizyty w salonie - inspiracje, metamorfozy i profesjonalne zabiegi.</p>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Video 2 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/swiry%20rd%20kinetic%20final2.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="swiry.jpg" alt="Relacja ze ŚWiRowania" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Short dla szkoły językowej</h3>
-                        <p>Edukacyjny materiał w formie shorta. 3x więcej zapytań o kursy w ciągu tygodnia od publikacji.</p>
+                        <h3>Relacja ze ŚWiRowania</h3>
+                        <p>Ślęża w 60 sekund - adrenalinowy przejazd! Dynamiczna relacja z rowerowego spotkania na szczycie Ślęży - emocje i górska przygoda.</p>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Video 3 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/koniec%20projektu.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="niewyszlo.jpg" alt="Koniec projektu rowerowego" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Wideo produktowe</h3>
-                        <p>Prezentacja nowego produktu tech. Połączenie ujęć produktowych z testimonialami.</p>
+                        <h3>Koniec projektu rowerowego</h3>
+                        <p>Dlaczego ten projekt upadł? Zobacz film! Rolka zapraszająca do obejrzenia pełnego filmu - szczera analiza nieudanego projektu.</p>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Video 4 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/bmx%20short%20final.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="bmx.jpg" alt="Relacja z contestu BMX freestyle" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Seria Reels dla restauracji</h3>
-                        <p>Cykl krótkich filmów promujących menu sezonowe. 40% wzrost rezerwacji w miesiącu kampanii.</p>
+                        <h3>Relacja z contestu BMX freestyle</h3>
+                        <p>BMX Freestyle na Popowicach - emocje do ostatniego triku! Relacja z zawodów w skateparku Zajezdnia - akrobacje i walka o podium.</p>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Video 5 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/lava%20moving.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="VFX.jpg" alt="Przykład VFX: vulcano text" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Long-form tutorial</h3>
-                        <p>Pełny tutorial w formacie 10-minutowym. Przejrzysty montaż z zaznaczeniem kluczowych kroków.</p>
+                        <h3>Przykład VFX: vulcano text</h3>
+                        <p>Magia efektów specjalnych w akcji. Krótka prezentacja umiejętności VFX w DaVinci Fusion - ożywiamy tekst jak lawę!</p>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Video 6 -->
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
+                <a href="https://mszycaportfolio.b-cdn.net/rolka%204.1.mov" target="_blank" class="video-card">
+                    <div class="thumbnail-container">
+                        <img src="wodor2.jpg" alt="Czas na oczyszczanie!" class="thumbnail">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="video-info">
-                        <h3>Kampania eventowa</h3>
-                        <p>Materiały promujące wydarzenie biznesowe. Połączenie formatów short i long-form.</p>
+                        <h3>Czas na oczyszczanie!</h3>
+                        <p>Oczyszczanie wodorowe - dlaczego warto? Krótkie video z lektorem - poznaj zalety nowoczesnych zabiegów oczyszczania wodorowego.</p>
                     </div>
-                </div>
+                </a>
             </div>
             
             <div style="text-align: center; margin-top: 50px;">
@@ -634,7 +694,7 @@
                             <span>Gotowy na jednorazowe zlecenia</span>
                         </div>
                         <div class="status-item">
-                            <div class="status-checkbox checked"></div> 
+                            <div class="status-checkbox checked"></div>
                             <span>Otwarty na współpracę długoterminową</span>
                         </div>
                     </div>
@@ -672,19 +732,18 @@
                 }
             });
         });
-
+        
         // Add hover effect to video cards
         document.querySelectorAll('.video-card').forEach(card => {
-            const placeholder = card.querySelector('.video-placeholder');
-            const icon = card.querySelector('.fa-play-circle');
+            const thumbnail = card.querySelector('.thumbnail');
+            const playIcon = card.querySelector('.play-icon');
             
             card.addEventListener('mouseenter', function() {
-                icon.style.transform = 'scale(1.2)';
-                icon.style.transition = 'transform 0.3s';
+                playIcon.style.transform = 'scale(1)';
             });
             
             card.addEventListener('mouseleave', function() {
-                icon.style.transform = 'scale(1)';
+                playIcon.style.transform = 'scale(0.8)';
             });
         });
     </script>
