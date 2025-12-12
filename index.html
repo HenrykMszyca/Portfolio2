@@ -61,12 +61,12 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             font-size: 1.8rem;
-            color: var(--primary);
+            color: var(--dark);
             text-decoration: none;
         }
         
         .logo span {
-            color: var(--secondary);
+            color: var(--dark);
         }
         
         .nav-links {
@@ -131,8 +131,9 @@
             color: var(--dark);
         }
         
-        .hero h1 span {
+        .hero .title-line-2 {
             color: var(--primary);
+            display: block;
         }
         
         .hero p {
@@ -618,8 +619,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Montaż filmów, który <span>przekłada się na wyniki</span></h1>
-                <p>Tworzę spójne, angażujące treści wideo dla social media, które realizują realne cele biznesowe bez zbędnych efektów i chwilowych trendów.</p>
+                <h1>Solidny montaż,<br><span class="title-line-2">zero ściemy</span></h1>
+                <p>Tworzę <b>spójne treści wideo dla social media,</b> bez zbędnych efektów i chwilowych trendów.</p>
                 <a href="#contact" class="cta-button">Zleć montaż filmu</a>
             </div>
         </div>
@@ -627,11 +628,11 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">O <span>mnie</span></h2>
+            <h2 class="section-title" style="color: #000000 !important;">O mnie</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Montażem wideo zajmuję się od 3 lat, a od roku pracuję komercyjnie z klientami. Skupiam się na jasnym przekazie, spójności materiałów i realnych celach wideo, bez zbędnych efektów i chwilowych trendów.</p>
-                    <p>Moje doświadczenie obejmuje zarówno krótkie formaty (Reels/Shorts), jak i dłuższe materiały wideo, zawsze dostosowane do specyfiki platformy i oczekiwań odbiorców.</p>
+                    <p>Montażem wideo zajmuję się <b>od 3 lat,</b> a od roku pracuję komercyjnie z klientami. Skupiam się na jasnym przekazie, spójności materiałów i stylu bez zbędnych efektów i chwilowych trendów.</p>
+                    <p>Moje doświadczenie obejmuje zarówno krótkie formaty (Reels/Shorts), jak i dłuższe materiały wideo, zawsze dostosowane do specyfiki platformy i oczekiwań klientów.</p>
                     <div class="highlight-box">
                         <p><strong>Dostarczasz materiał - resztę robię ja.</strong> Oszczędzam Twój czas, a Ty otrzymujesz gotowe materiały do publikacji, bez potrzeby poprawek.</p>
                     </div>
@@ -690,10 +691,10 @@
             <p style="text-align: center; margin-bottom: 40px; color: var(--gray); max-width: 800px; margin-left: auto; margin-right: auto;">Kliknij w dowolny kafelek, aby obejrzeć film. Wszystkie wideo odtwarzają się bezpośrednio w przeglądarce.</p>
             
             <div class="videos-container">
-                <!-- Video 1 - Bunny Stream -->
-                <div class="video-card" data-video-index="0">
+                <!-- Video 1 (teraz kafelek nr 4 - BMX) -->
+                <div class="video-card" data-video-index="3">
                     <div class="thumbnail-container">
-                        <img src="wodor1.jpg" alt="Wizyta w salonie beauty" class="thumbnail">
+                        <img src="bmx.jpg" alt="Relacja z contestu BMX freestyle" class="thumbnail">
                         <div class="play-overlay">
                             <div class="play-icon">
                                 <i class="fas fa-play"></i>
@@ -701,8 +702,8 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3>Wizyta w salonie beauty</h3>
-                        <p>Zobacz, jak odmieniamy klientów marki! Ekskluzywna relacja z wizyty w salonie – inspiracje, metamorfozy i profesjonalne zabiegi.</p>
+                        <h3>Relacja z contestu BMX freestyle</h3>
+                        <p>BMX Freestyle na Popowicach – emocje do ostatniego triku! Relacja z zawodów w skateparku Zajezdnia – akrobacje i walka o podium.</p>
                     </div>
                 </div>
                 
@@ -740,10 +741,10 @@
                     </div>
                 </a>
                 
-                <!-- Video 4 - Bunny Stream -->
-                <div class="video-card" data-video-index="3">
+                <!-- Video 4 (teraz kafelek nr 1 - Beauty salon) -->
+                <div class="video-card" data-video-index="0">
                     <div class="thumbnail-container">
-                        <img src="bmx.jpg" alt="Relacja z contestu BMX freestyle" class="thumbnail">
+                        <img src="wodor1.jpg" alt="Wizyta w salonie beauty" class="thumbnail">
                         <div class="play-overlay">
                             <div class="play-icon">
                                 <i class="fas fa-play"></i>
@@ -751,12 +752,12 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3>Relacja z contestu BMX freestyle</h3>
-                        <p>BMX Freestyle na Popowicach – emocje do ostatniego triku! Relacja z zawodów w skateparku Zajezdnia – akrobacje i walka o podium.</p>
+                        <h3>Wizyta w salonie beauty</h3>
+                        <p><b>Nie jestem autorem scenariusza rolki! </b>Ekskluzywna relacja z wizyty w salonie – inspiracje, metamorfozy i profesjonalne zabiegi.</p>
                     </div>
                 </div>
                 
-                <!-- Video 5 - Bunny Stream -->
+                <!-- Video 5 - VFX -->
                 <div class="video-card" data-video-index="4">
                     <div class="thumbnail-container">
                         <img src="VFX.jpg" alt="Przykład VFX: vulcano text" class="thumbnail">
@@ -772,7 +773,7 @@
                     </div>
                 </div>
                 
-                <!-- Video 6 - Bunny Stream -->
+                <!-- Video 6 - Wodor 2 -->
                 <div class="video-card" data-video-index="5">
                     <div class="thumbnail-container">
                         <img src="wodor2.jpg" alt="Czas na oczyszczanie!" class="thumbnail">
@@ -802,7 +803,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 50px;">
-                <p style="color: var(--gray); margin-bottom: 20px;">Wideo hostowane są na platformie Bunny Stream dla płynnego odtwarzania, oraz Instagram.</p>
+                <p style="color: var(--gray); margin-bottom: 20px;">Wszystkie wideo hostowane są na platformie Bunny Stream i Instagram dla płynnego odtwarzania.</p>
                 <a href="#contact" class="cta-button">Skontaktuj się, aby zobaczyć więcej</a>
             </div>
         </div>
@@ -854,7 +855,7 @@
                 <i class="fab fa-github"></i> Zobacz projekt na GitHub
             </a>
             <p>© 2025 Henryk Mszyca. Wszystkie prawa zastrzeżone.</p>
-            <p>Montaż filmów dla social media | Reels | Shorts | Long-form</p>
+            <p>Montaż filmów dla social media | Shorts | Long-form</p>
         </div>
     </footer>
 
